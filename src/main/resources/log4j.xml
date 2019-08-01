@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+<!-- Appender settings -->
+  <!-- Console Appender -->
+  <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+    <param name="Threshold" value="TRACE"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy.MM.dd HH:mm:ss.SSS},%-5p,[%x] (%c,%F,%L),%m%n"/>
+    </layout>
+  </appender>
+ 
+
+  <!-- File Appender -->
+  <appender name="PT_FILE" class="org.apache.log4j.CompositeRollingFileAppender">
+    <param name="MaxBackupIndex" value="7"/>
+    <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+    <param name="Threshold" value="TRACE"/>
+    <param name="File" value="/usr/local/stream-batch/log/xm03-batch.PerformanceTrace.log"/>
+    <param name="append" value="true" />
+    <param name="Encoding" value="UTF-8" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy.MM.dd HH:mm:ss.SSS},%-5p,[%x] (%c,%F,%L),%m%n"/>
+    </layout>
+  </appender>
+
+  
+ 
+  <category
+      name="org.jboss.resteasy"
+      additivity="false">
+    <priority value="DEBUG"/>
+    <appender-ref ref="CONSOLE"/>
+  </category>
+  
+
+  <!-- other -->
+  <root>
+    <priority value="WARN"/> 
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</log4j:configuration>
