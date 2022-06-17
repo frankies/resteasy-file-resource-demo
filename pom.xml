@@ -10,7 +10,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<version.resteasy>2.2.3.GA</version.resteasy>
+		<version.resteasy>3.0.11.Final</version.resteasy>
 	</properties>
 	<repositories>
 		<repository>
